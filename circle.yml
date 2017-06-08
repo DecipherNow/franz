@@ -1,0 +1,8 @@
+machine:
+  services:
+    - docker
+
+test:
+    override:
+        - cat /dev/null | sbt test:test
+        - cat /dev/null | sbt it:test
