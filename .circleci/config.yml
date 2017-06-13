@@ -1,9 +1,16 @@
 version: 2
 jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8
+    steps:
+      - checkout
   test:
     docker:
-      - image: circleci/scala:2.11
+      - image: circleci/openjdk:8
     steps:
       - checkout
       - run: cat /dev/null | sbt test:test
       - run: cat /dev/null | sbt it:test
+
+
