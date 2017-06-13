@@ -26,9 +26,9 @@ lazy val root = (project in file("."))
 
     scalaVersion := "2.11.11",
 
-    pgpPassphrase := Some(sys.env("PGP_PASSPHRASE").toCharArray),
-    pgpPublicRing := file(sys.env("PGP_PUBLIC_RING")),
-    pgpSecretRing := file(sys.env("PGP_SECRET_RING")),
+    pgpPassphrase := Some(sys.env.getOrElse("PGP_PASSPHRASE", "").toCharArray),
+    pgpPublicRing := file(sys.env.getOrElse("PGP_PUBLIC_RING", "/dev/null")),
+    pgpSecretRing := file(sys.env.getOrElse("PGP_SECRET_RING", "/dev/null")),
 
     libraryDependencies += "com.typesafe.akka" %% "akka-stream-kafka" % "0.14",
     libraryDependencies += "com.deciphernow" % "moby-dns" % "1.0.0" % "it",
