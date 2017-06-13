@@ -11,7 +11,7 @@ To use Franz within a Maven project add the following dependency:
 <dependency>
     <groupId>com.deciphernow</groupId>
     <artifactId>franz</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 
 ```
@@ -19,7 +19,7 @@ To use Franz within a Maven project add the following dependency:
 To use Franz within an SBT project add the following dependency:
 
 ```sbtshell
-libraryDependencies += "com.deciphernow" % "franz" % "1.0.0-SNAPSHOT"
+libraryDependencies += "com.deciphernow" % "franz" % "1.0.0"
 ```
 
 ### Consuming from Kafka
