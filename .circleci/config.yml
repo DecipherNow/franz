@@ -12,5 +12,12 @@ jobs:
       - checkout
       - run: cat /dev/null | sbt test:test
       - run: cat /dev/null | sbt it:test
-
-
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+        filters:
+          branches:
+            only: master
