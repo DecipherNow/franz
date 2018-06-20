@@ -5,19 +5,16 @@ jobs:
       - image: circleci/openjdk:8
     steps:
       - checkout
+      - run: cat /dev/null | sbt compile
   test:
     docker:
       - image: circleci/openjdk:8
     steps:
       - checkout
       - run: cat /dev/null | sbt test:test
-      - run: cat /dev/null | sbt it:test
+    #  - run: cat /dev/null | sbt it:test
 workflows:
   version: 2
   test-and-deploy:
     jobs:
       - test
-      - deploy:
-        filters:
-          branches:
-            only: master
